@@ -109,14 +109,14 @@ input {
 a {
   text-decoration: none;
   background: none;
-  color: var(--secondary-color);
+    color: var(--secondary-color) !important;
   font-weight: 500;
 }
 
 /* -------------------------- ANTI A -------------------------- */
 
 a:visited {
-  color: inherit;
+  color: white;
 }
 
 a:hover,
@@ -264,7 +264,7 @@ a:active {
 
 header .lfdj-navbar {
     display: grid;
-    grid-template-columns: 35px repeat(5, 1fr) 75px;
+    grid-template-columns: 35px repeat(6, 1fr) 75px;
     width: 90%;
     margin: 10px auto;
     justify-content: space-between;
@@ -278,7 +278,7 @@ header .lfdj-navbar {
 }
 
 header a {
-    color: var(--white-color);
+    color: var(--white-color)!important;
     font-family: var(--font-third);
     text-transform: uppercase;
     font-weight: 400;
@@ -412,6 +412,11 @@ header a:hover {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.lfdj-footer-container:has(#dark-mode-toggle:checked) {
+  --white-color: #171717;
+}
+
 
 .lfdj-footer .lfdj-footer-container {
     display: grid;
