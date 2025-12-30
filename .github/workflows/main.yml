@@ -11,5 +11,5 @@ jobs:
     steps:
     - name: Déploiement sur le VPS
       run: |
-        apt install sshpass
+        sudo apt install -y sshpass
         sshpass -p ${VPS_SSH_PORT} ${VPS_USER}@${VPS_HOST} "cd ${VPS_PROJECT_LOCATION} && ./sync_with_main.sh"
