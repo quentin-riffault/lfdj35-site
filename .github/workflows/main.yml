@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+    - main
+  
+jobs:
+  deploy_on_vps:
+    name: Déploiement sur le VPS
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Déploiement sur le VPS
+      run: |
+        sshpass -p ${VPS_SSH_PORT} ${VPS_USER}@${VPS_HOST} "cd ${VPS_PROJECT_LOCATION} && ./sync_with_main.sh"
