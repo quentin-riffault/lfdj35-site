@@ -10,6 +10,10 @@ jobs:
 
     steps:
     - name: Déploiement sur le VPS
-      run: |
-        sudo apt install -y sshpass
-        sshpass -p ${VPS_SSH_PORT} ${VPS_USER}@${VPS_HOST} "cd ${VPS_PROJECT_LOCATION} && ./sync_with_main.sh"
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: cd ${VPS_PROJECT_LOCATION} && ./sync_with_main.sh
